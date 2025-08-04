@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emovara - Gifts that feel. Emotions that stay.</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fdf6f9;
+      color: #333;
+    }
+    header {
+      background-color: #e91e63;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .tagline {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+    main {
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+    }
+    h2 {
+      color: #c2185b;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, textarea, button {
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    button {
+      background-color: #c2185b;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .output {
+      margin-top: 30px;
+      background-color: #fff0f5;
+      padding: 20px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Emovara</h1>
+    <p class="tagline">Gifts that feel. Emotions that stay.</p>
+  </header>
+  <main>
+    <h2>Create Your Love Letter</h2>
+    <form id="giftForm">
+      <input type="text" id="name" placeholder="Recipient's Name" required>
+      <input type="text" id="occasion" placeholder="Occasion (e.g. Birthday, Just Because)">
+      <textarea id="feelings" rows="4" placeholder="Write your feelings here..." required></textarea>
+      <button type="submit">Generate Love Letter</button>
+    </form>
+    <div id="output" class="output" style="display:none;"></div>
+  </main>
+  <script>
+    const form = document.getElementById('giftForm');
+    const output = document.getElementById('output');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const occasion = document.getElementById('occasion').value;
+      const feelings = document.getElementById('feelings').value;
+
+      const message = `Dear ${name},\n\nOn this beautiful ${occasion || 'day'}, I just wanted to remind you how deeply you're loved.\n\n${feelings}\n\nWith all my heart,\nYours always.`;
+
+      output.style.display = 'block';
+      output.textContent = message;
+    });
+  </script>
+</body>
+</html>
